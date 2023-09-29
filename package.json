@@ -1,0 +1,16 @@
+{
+  "name": "bun-interpreter",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "bun-types": "^1.0.3"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "scripts": {
+    "prod": "bun run index.ts",
+    "clean": "rm -rf dist && echo 'Done.'",
+    "dev": "bun server.ts"
+  }
+}
