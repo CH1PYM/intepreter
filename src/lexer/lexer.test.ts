@@ -1,4 +1,4 @@
-import { parser } from "./lexer.js";
+import { isLetter, isNumber, parser } from "./lexer.js";
 import { TokenType } from "../token/token.js";
 import { expect, test } from "bun:test";
 
@@ -12,3 +12,20 @@ test('should be 5',()=> {
         {Type:TokenType.INT, Literal:'5'}])
     }
     )
+
+test('should be number', () => {
+    expect(isNumber('456')).toBe(true)
+})
+
+test('should not be number', () => {
+    expect(isNumber('46qw6+9')).toBe(false)
+})
+
+test('should be letter', () => {
+    expect(isLetter('jkljiy')).toBe(true)
+})
+
+// test only one value
+test('should not be letter', () => {
+    expect(isLetter('5')).toBe(false)
+})

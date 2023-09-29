@@ -12,9 +12,9 @@ export function parser(code:string){
     const parsedTokens: Token[] = []
     const rawCode: string[] = code.split("")
 
-    console.log(rawCode)
+    //console.log(rawCode)
     for (const letter of rawCode) {
-        console.log(letter)
+        //console.log(letter)
         
         switch(letter) {
             case "=":
@@ -38,9 +38,15 @@ export function parser(code:string){
             case ',':
                 parsedTokens.push(newToken(',',TokenType.COMMA));
                 break;
-            
-
-
+            default:
         }
       }
+}
+
+export function isLetter(src:string) {
+    return src.toLowerCase() != src.toUpperCase();
+}
+
+export function isNumber(str:string) {
+    return !isNaN(Number(str))
 }
