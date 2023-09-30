@@ -1,6 +1,6 @@
 import { Token, TokenType, keywords } from "../token/token.js"
 
-export function parser(code:string){
+export function lexer(code:string){
     const parsedTokens: Token[] = []
     const rawCode: string[] = code.split("")
 
@@ -17,6 +17,9 @@ export function parser(code:string){
                 break;
             case '{':
                 parsedTokens.push(newToken(rawCode.shift(),TokenType.LBRACE));
+                break;
+            case '+':
+                parsedTokens.push(newToken(rawCode.shift(),TokenType.PLUS));
                 break;
             case '}':
                 parsedTokens.push(newToken(rawCode.shift(),TokenType.RBRACE));
@@ -49,7 +52,7 @@ export function parser(code:string){
                     break
                     
                 }
-                if(isWhiteSpaceLike(rawCode[0])){
+                if(isWhiteSpace(rawCode[0])){
                     rawCode.shift()
                     break
                 }
@@ -83,9 +86,6 @@ function newToken(Literal:string = "", Type:TokenType):Token {
     return {Type ,Literal}
 }
 
-function isWhiteSpaceLike(char:string) {
-    if(char == " " ) {
-        return true
-    }
-    return false
+export function isWhiteSpace(char:string) {
+    return char == " " || char == "\n" || char == "\t" || char == "\r" 
 }

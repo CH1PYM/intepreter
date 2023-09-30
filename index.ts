@@ -1,6 +1,6 @@
-import { isLetter, isNumber, lookUpIdent, parser } from "./src/lexer/lexer";
+import { isLetter, isNumber, isWhiteSpace, lookUpIdent, lexer } from "./src/lexer/lexer";
 import { TokenType } from "./src/token/token";
 
-parser("let five = 10")
+lexer("let five = 10")
 
 
