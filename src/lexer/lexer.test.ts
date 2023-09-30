@@ -1,5 +1,4 @@
 import { isLetter, isNumber, parser } from "./lexer.js";
-import { TokenType } from "../token/token.js";
 import { expect, test } from "bun:test";
 
 const input = 'let five = 5'

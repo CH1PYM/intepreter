@@ -1,20 +1,9 @@
 import { Token, TokenType, keywords } from "../token/token.js"
 
-function newToken(Literal:string = "", Type:TokenType):Token {
-    return {Type ,Literal}
-}
-
-function isWhiteSpaceLike(char:string) {
-    if(char == " " ) {
-        return true
-    }
-    return false
-}
-
 export function parser(code:string){
     const parsedTokens: Token[] = []
     const rawCode: string[] = code.split("")
-    
+
     while (rawCode.length > 0) {
         switch(rawCode[0]) {
             case "=":
@@ -88,4 +77,15 @@ export function isNumber(str:string) {
 
 export function lookUpIdent(str:string): false | TokenType {
     return keywords.hasOwnProperty(str) ? keywords[str] : false;
+}
+
+function newToken(Literal:string = "", Type:TokenType):Token {
+    return {Type ,Literal}
+}
+
+function isWhiteSpaceLike(char:string) {
+    if(char == " " ) {
+        return true
+    }
+    return false
 }
