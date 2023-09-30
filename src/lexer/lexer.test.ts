@@ -4,21 +4,31 @@ import { expect, test } from "bun:test";
 
 const input = 'let five = 5'
 
-test('should be 5',()=> {
+test('should parse',()=> {
     expect(parser(input)).toEqual([
-        {Type:TokenType.LET, Literal:'let'},
-        {Type:TokenType.IDENT, Literal:'five'},
-        {Type:TokenType.ASSIGN, Literal:'='},
-        {Type:TokenType.INT, Literal:'5'}])
+        {
+          Type: "LET",
+          Literal: "let"
+        }, {
+          Type: "IDENT",
+          Literal: "five"
+        }, {
+          Type: "=",
+          Literal: "="
+        }, {
+          Type: "INT",
+          Literal: "5"
+        }
+      ])
     }
     )
 
 test('should be number', () => {
-    expect(isNumber('456')).toBe(true)
+    expect(isNumber('6')).toBe(true)
 })
 
 test('should not be number', () => {
-    expect(isNumber('46qw6+9')).toBe(false)
+    expect(isNumber('m')).toBe(false)
 })
 
 test('should be letter', () => {
@@ -28,4 +38,8 @@ test('should be letter', () => {
 // test only one value
 test('should not be letter', () => {
     expect(isLetter('5')).toBe(false)
+})
+
+test('should not be number', () => {
+    expect(isNumber(' ')).toBe(false)
 })
