@@ -1,3 +1,4 @@
-node_modules
-dist
-github
+node_modules/
+out/
+github/
+.github/

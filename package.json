@@ -12,7 +12,8 @@
     "prod": "bun run index.ts",
     "clean": "rm -rf dist && echo 'Done.'",
     "dev": "bun server.ts",
-    "lint": "eslint . --ext .ts"
+    "lint": "eslint . --ext .ts",
+    "build" : "bun build ./index.ts --outdir ./out"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^6.7.3",
