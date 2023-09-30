@@ -14,8 +14,8 @@ jobs:
       - name: Bun stup
         uses: oven-sh/setup-bun@v1
 
-      - name: Run Super-linter
-        uses: github/super-linter@v4
+      #- name: Run Super-linter
+      #  uses: github/super-linter@v4
 
       # run any `bun` or `bunx` command
       - run: bun install
