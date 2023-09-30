@@ -2,7 +2,7 @@
 export enum TokenType {
     ILLEGAL = "ILLEGAL",
     EOF = "EOF",
-    
+
     IDENT = "IDENT",
     INT = "INT",
 
@@ -17,7 +17,7 @@ export enum TokenType {
 
     // keyword
     FUNCTION = "FUNCTION",
-    LET = "LET", 
+    LET = "LET",
     RETURN = "RETURN",
     ELSE = "ELSE",
     IF = "IF",
@@ -30,7 +30,7 @@ export interface Token {
     Literal: string
 }
 
-export const keywords:Record<string,TokenType> = {
+export const keywords: Record<string, TokenType> = {
     let: TokenType.LET,
     function: TokenType.FUNCTION,
     return: TokenType.RETURN,
